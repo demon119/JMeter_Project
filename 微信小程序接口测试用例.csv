@@ -1,0 +1,9 @@
+用例ID,模块,接口名称,请求URL,请求类型,请求参数,预期结果,是否运行,数据库结果是否验证,数据库查询语句,JSON关联表达式
+Test_1,首页,首页,/api/index/index,get,,"""errno"":0",n,,,
+Test_2,商品总数查询,商品总数查询,/api/goods/count,get,,"{""errno"":0,""errmsg"":"""",""data"":{""goodsCount"":237}}",y,y,select count(*) from nideshop_goods WHERE is_delete = 0  AND is_on_sale = 1;,$.data.goodsCount
+Test_3,历史记录与热门搜索,历史记录与热门搜索,/api/search/index,get,,"""errno"":0",n,,,
+Test_4,搜索商品列表,搜索商品列表,/api/goods/list,get,keyword=牛排&page= 1&size= 10&sort= price&order= asc&categoryId= 0," ""name"": ""铸铁珐琅牛排煎锅""",n,,,
+Test_5,分类列表,分类列表,/api/goods/category,get,id=1005000,,n,,,
+Test_6,商品详情,商品详情,/api/goods/detail,get,id=1155000,,n,,,
+Test_7,购物车,添加购物车,/api/cart/add,post,"{ ""goodsId"": 1166008, ""number"": 1,""productId"": 244}",,y,,,
+Test_8,购物车,购物车,/api/cart/index,get,,,n,,,
